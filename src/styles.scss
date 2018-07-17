@@ -1,1 +1,7 @@
-@import 'themes/layout'
+@import 'themes/layout';
+@import 'themes/theme';
+
+.error{
+    color: orange;
+    text-align: center;
+}

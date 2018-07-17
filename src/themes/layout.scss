@@ -1,5 +1,16 @@
 @import 'variables';
 
+*{
+    box-sizing: border-box;
+}
+
+// por defecto tienen un margen... y al adicionar márgenes adicionales me genera la barra de scroll
+// eliminamos estos espacios
+html, body{
+    margin: 0px;
+    padding: 0px;
+}
+
 @mixin lyContainer($size, $mt:0px) {    
     .container{
         width: $size;

@@ -1,0 +1,15 @@
+.login{
+    // background: red;
+    // view holder, hace referencia al tamaño de la pantalla (no al elemento padre)
+    // check backgroud image T.T    
+    background-image: url('../../../../assets/images/cinema.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 50px;
+}
+.hint-color{
+    // color: $appPrimary;
+    // how to use variables from other css...
+    color: magenta;
+}

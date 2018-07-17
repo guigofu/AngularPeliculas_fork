@@ -1,0 +1,42 @@
+@import '~@angular/material/theming';
+
+//incluye todos los estilos por defecto
+@include mat-core();
+
+// in file @angular/material/_theming.scss are the definitions (mixins, funcionts, colors?)
+// colors in www.materialpalette.com
+// los mixin injectan el css, las funciones me pueden retornar un valor
+$appPrimary : mat-palette($mat-pink);
+$appSecondary : mat-palette($mat-amber);
+$appWarn : mat-palette($mat-red);
+
+$appTheme: mat-light-theme($appPrimary, $appSecondary, $appWarn);
+$appDarkTheme: mat-dark-theme($appPrimary, $appSecondary, $appWarn); 
+
+// este include, es un mixin que inserta el css en nuestro archivo
+@include angular-material-theme($appTheme);
+
+.dark-theme{
+    @include angular-material-theme($appDarkTheme);
+}
+
+/*
+$mapa : (
+    "rojo": #ff0000,
+    10: 10px,
+    "azul": #0000ff
+);
+
+$mapa2 : (
+    "amarillo": #ffff00,
+    10: 10%
+);
+// la función map-get es propia de css, parámetros: mapa, llave
+
+$dimension : map-get($mapa, 10);
+// otras funciones... map-merge. si hay conflictos, toma el valor de la derecha
+$mapa3: map-merge($mapa , $mapa2);
+// en este caso: 
+map-get($mapa3, 10),
+// nos retornaría 10%
+*/

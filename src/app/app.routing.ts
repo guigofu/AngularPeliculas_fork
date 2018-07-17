@@ -4,11 +4,13 @@ import { LoginComponent } from './core/pages/login/login.component';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 import { moviesRoutes } from './movies/movies.routing';
 import { NgModule } from '@angular/core';
+import { AuthGuardService } from './core/services/auth-guard.service';
 
 const routes: Routes = [
     { path: '', component: LoginComponent },
     {
-        path: 'estrenos', component: DashboardComponent, children: [
+        path: 'estrenos', component: DashboardComponent, canActivate: [AuthGuardService],
+         children: [
             ...moviesRoutes,
             { path: '', redirectTo: 'peliculas', pathMatch: 'full' }
         ]

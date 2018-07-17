@@ -1,10 +1,23 @@
-<div >
-
-    <div style="background: red">Contenido 1</div>
-    <div style="background: blue">Contenido 2</div>
-    <div style="background: yellow">Contenido 3</div>
-    <div style="background: green">Contenido 4</div>
-    <div style="background: violet">Contenido 5</div>
-    <div style="background: orange">Contenido 6</div>
-
+<div fxLayout="row" fxLayoutAlign="start center" class="login">
+    <!-- gt = greather than.  lt = less than ? -->
+    <div fxFlex="0 0 100%"
+    fxFlex.gt-sm="0 0 50%" fxFlexOffset.gt-sm="25%"
+    fxFlex.gt-md="0 0 30%" fxFlexOffset.gt-md="70%"
+    class="dark-theme"
+    >
+        <form #loginForm="ngForm" fxLayout="row wrap">
+            <!-- details are in material.angular.io ex: https://material.angular.io/components/form-field/api -->
+            <mat-form-field appearance="outline" fxFlex="100%">
+                <mat-label>Usuario</mat-label>
+                <input matInput type="text" [(ngModel)]="username" name="usr">
+            </mat-form-field>
+            <mat-form-field appearance="outline" fxFlex="100%">
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" [(ngModel)]="password" name="pass" (keyup.enter)="login()">
+            </mat-form-field>
+            <button mat-raised-button color="accent" fxFlex="50%">Regístrate</button>
+            <button mat-stroked-button color="accent" fxFlex="50%" (click)="login()">Entrar</button>
+            <p fxFlex="100%" *ngIf="error" class="error">Usuario o contraseña incorrectos</p>
+        </form>
+    </div>
 </div>
