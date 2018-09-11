@@ -1,7 +1,23 @@
-<p>
-  dashboard works!
-</p>
+<mat-sidenav-container class="dashboard side-dark">
+  <mat-sidenav class="sidenav list-dark" #sideNav [mode]="(isPhone | async) ? 'over': 'side'" [opened]="!(isPhone | async)" fixedInViewPort>
+    
+    menú lateral
 
-<hr>
-
-<router-outlet></router-outlet>
+    <mat-nav-list>
+      <!-- marca el elemento como active, cuando hay coincidencia entre el path y el elemento -->
+      <a routerLink="/estrenos/peliculas" routerLinkActive="active" mat-list-item> <mat-icon matListIcon>movie</mat-icon> Estrenos </a>
+      <a routerLink="/estrenos/cinemas" routerLinkActive="active" mat-list-item> <mat-icon matListIcon>tv</mat-icon> Cinemas </a>
+      <a routerLink="/estrenos/reservas" routerLinkActive="active" mat-list-item> <mat-icon matListIcon>receipt</mat-icon> Reservas </a>
+      <a routerLink="/estrenos/comidas" routerLinkActive="active" mat-list-item> <mat-icon matListIcon>fastfood</mat-icon> Comida </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="dashboard-content">
+    <mat-toolbar color="primary">
+      <button mat-icon-button *ngIf="isPhone | async" (click)="sideNav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="container">Estrenos</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,3 +1,18 @@
-<p>
-  list-movie works!
-</p>
+<div class="container section" fxLayout="row wrap" fxLayoutGap="15px">
+  <div fxFlex="0 0 100%" fxFlex.gt-sm="0 0calc(50% - 15px)" fxFlex.gt-md="0 0 calc(33% - 15px)"
+  *ngFor="let m of data">
+    
+    <mat-card>
+      <mat-card-header></mat-card-header>
+      <mat-card-title>{{m.title}}</mat-card-title>
+      <img src="{{'https://image.tmdb.org/t/p/w500' + m.poster_path}}">
+      <mat-card-content>
+        <p>{{m.overview}}</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button color="accent">Detalle</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+</div>

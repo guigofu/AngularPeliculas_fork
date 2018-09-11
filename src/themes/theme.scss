@@ -20,6 +20,25 @@ $appDarkTheme: mat-dark-theme($appPrimary, $appSecondary, $appWarn);
     @include angular-material-theme($appDarkTheme);
 }
 
+// estas propiedades en el html se usan en el elemento padre (el "contenedor" inmediator)
+.side-dark{
+
+    $background-dark : map-get($appDarkTheme, background );   
+    $background-side : map-merge($background-dark, (card: map_get($mat-grey, 900), dialog: map_get($mat-grey, 900),));
+    $side-dark :map-merge($appDarkTheme, (background: $background-side) );
+    @include mat-sidenav-theme($side-dark); 
+   
+}
+   
+// obtenemos el foreground, le cambiamos la propiedad text,
+// remplazamos este resultado??
+.list-dark{
+    $foreground-dark : map-get($appDarkTheme , foreground );
+    $foreground-side : map-merge($foreground-dark , (text:#999) );
+    $list-dark :map-merge($appDarkTheme, (foreground: $foreground-side) );
+    @include mat-list-theme($list-dark) 
+}
+
 /*
 $mapa : (
     "rojo": #ff0000,

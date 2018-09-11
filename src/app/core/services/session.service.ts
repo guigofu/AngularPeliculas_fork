@@ -5,11 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class SessionService {
 
-  get logged(): boolean{
+  get logged(): boolean {
     return sessionStorage.getItem('logged') === 'true';
   }
 
-  set logged(value: boolean){
+  set logged(value: boolean) {
     sessionStorage.setItem('logged', '' + value);
   }
 
